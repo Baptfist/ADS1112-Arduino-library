@@ -8,8 +8,8 @@ void setup() {
   Serial.begin(9600);
    
   //pin A0, A1 tied to GND. Address: 1001000
-  ads1112.init(ADS1112::L, ADS1112::L);
-  ads1112.selectChannel(ADS1112::CHANNEL_1, ADS1112::GAIN_1, ADS1112::MODE_UNIPOLAR);
+  ads1112.init_address(ADS1112::L, ADS1112::F);
+  ads1112.selectChannel(ADS1112::CHANNEL_1, ADS1112::GAIN_1, ADS1112::MODE_UNIPOLAR, ADS1112::RESOLUTION_16BIT, ADS1112::CONVERSION_CONTINUOUS);
 
 }
 

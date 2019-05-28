@@ -19,8 +19,8 @@ public:
 	static const byte MODE_UNIPOLAR = 0;
 	static const byte MODE_BIPOLAR = 1;
 	
-	static const byte MODE_CONTINUOUS_CONVERTION = 0;
-	static const byte MODE_SINGLE_CONVERTION = 1;
+	static const byte CONVERSION_CONTINUOUS = 0;
+	static const byte CONVERSION_SINGLE = 1;
 
 	static const byte CHANNEL_0 = 0;
 	static const byte CHANNEL_1 = 1;
@@ -37,7 +37,7 @@ public:
 	static const byte RESOLUTION_16BIT = 3;
 
 	void init_address(byte A0, byte A1);
-	void selectChannel(byte channel, byte gain = GAIN_1, byte mode = MODE_UNIPOLAR, byte resolution = RESOLUTION_16BIT);
+	void selectChannel(byte channel, byte gain = GAIN_1, byte mode = MODE_UNIPOLAR, byte resolution = RESOLUTION_16BIT, byte conversion = CONVERSION_CONTINUOUS);
 	double readADC();
 private:
 	//communication register

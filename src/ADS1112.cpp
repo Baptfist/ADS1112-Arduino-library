@@ -20,7 +20,7 @@ void ADS1112::init_address(byte A0, byte A1)
 	else if (A0 == F && A1 == H) I2C_ADDRESS = B1001111;
 }
 
-void ADS1112::selectChannel(byte channel, byte gain, byte mode, byte resolution, byte convertion)
+void ADS1112::selectChannel(byte channel, byte gain, byte mode, byte resolution, byte conversion)
 {
     /*
 		INP controls which two of the four analog inputs are used
