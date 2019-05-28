@@ -5,9 +5,9 @@
 
 /*
  * ADS1112 Library
- * Kerry D. Wong
- * http://www.kerrywong.com
- * 5/2012
+ * Inspired from Kerry D. Wong http://www.kerrywong.com
+ * Modified by Baptiste PAULMIER
+ * 2019
  */
 
 class ADS1112 {
@@ -18,6 +18,9 @@ public:
 
 	static const byte MODE_UNIPOLAR = 0;
 	static const byte MODE_BIPOLAR = 1;
+	
+	static const byte MODE_CONTINUOUS_CONVERTION = 0;
+	static const byte MODE_SINGLE_CONVERTION = 1;
 
 	static const byte CHANNEL_0 = 0;
 	static const byte CHANNEL_1 = 1;
@@ -27,9 +30,14 @@ public:
 	static const byte GAIN_2 = 1;
 	static const byte GAIN_4 = 2;
 	static const byte GAIN_8 = 3; 
+	
+	static const byte RESOLUTION_12BIT = 0;
+	static const byte RESOLUTION_14BIT = 1;
+	static const byte RESOLUTION_15BIT = 2;
+	static const byte RESOLUTION_16BIT = 3;
 
-	void init(byte A0, byte A1);
-	void selectChannel(byte channel, byte gain = GAIN_1, byte mode = MODE_BIPOLAR);
+	void init_address(byte A0, byte A1);
+	void selectChannel(byte channel, byte gain = GAIN_1, byte mode = MODE_UNIPOLAR, byte resolution = RESOLUTION_16BIT);
 	double readADC();
 private:
 	//communication register
