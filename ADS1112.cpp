@@ -118,10 +118,6 @@ double ADS1112::readADC()
 	int h = Wire.read();
   	int l = Wire.read();
   	int r = Wire.read();
-	
-	Serial.print("H :");Serial.println(h, BIN);
-	Serial.print("L :");Serial.println(l, BIN);
-	Serial.print("R :");Serial.println(r, BIN);
   
   	long t = h << 8 |  l;
   	
