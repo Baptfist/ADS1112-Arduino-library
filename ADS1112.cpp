@@ -7,8 +7,14 @@
  * modified by Baptiste PAULMIER
  * 2019
  */
+ 
 
-void ADS1112::init_address(byte A0, byte A1)
+/*
+ * Select the good address according to the 
+ * A0 and A1 configuration
+ */
+
+byte ADS1112::init_address(byte A0, byte A1)
 {
 	if (A0 == L && A1 == L) I2C_ADDRESS = B1001000;
 	else if (A0 == L && A1 == F) I2C_ADDRESS = B1001001;
@@ -18,10 +24,13 @@ void ADS1112::init_address(byte A0, byte A1)
 	else if (A0 == H && A1 == H) I2C_ADDRESS = B1001110;
 	else if (A0 == F && A1 == L) I2C_ADDRESS = B1001011;
 	else if (A0 == F && A1 == H) I2C_ADDRESS = B1001111;
+	
+	return I2C_ADDRESS;
 }
 
-void ADS1112::selectChannel(byte channel, byte gain, byte mode, byte resolution, byte conversion)
+void ADS1112::writeADC(byte channel, byte gain, byte mode, byte resolution, byte conversion)
 {
+	
     /*
 		INP controls which two of the four analog inputs are used
 		to measure data in the ADC.

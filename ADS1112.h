@@ -35,9 +35,11 @@ public:
 	static const byte RESOLUTION_14BIT = 1;
 	static const byte RESOLUTION_15BIT = 2;
 	static const byte RESOLUTION_16BIT = 3;
+	
+	
 
-	void init_address(byte A0, byte A1);
-	void selectChannel(byte channel, byte gain = GAIN_1, byte mode = MODE_UNIPOLAR, byte resolution = RESOLUTION_16BIT, byte conversion = CONVERSION_CONTINUOUS);
+	byte init_address(byte A0, byte A1);
+	void writeADC(byte channel, byte gain = GAIN_1, byte mode = MODE_UNIPOLAR, byte resolution = RESOLUTION_16BIT, byte conversion = CONVERSION_CONTINUOUS);
 	double readADC();
 private:
 	//communication register
